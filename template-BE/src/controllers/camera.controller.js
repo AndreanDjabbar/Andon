@@ -1,5 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
+
 const settingsFilePath = path.join(__dirname, '../data/camera-settings.json');
 
 const getCameraSettings = async (req, res) => {
@@ -25,7 +26,6 @@ const saveCameraSettings = async (req, res) => {
 };
 
 const getCameraList = async (req, res) => {
-
   try {
     const data = await fs.readFile(settingsFilePath, 'utf8');
     const allSettings = JSON.parse(data);
@@ -33,8 +33,7 @@ const getCameraList = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error reading camera list', error });
   }
-  
-}
+};
 
 module.exports = {
   getCameraSettings,

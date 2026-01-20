@@ -1,32 +1,32 @@
 const express = require('express');
-const docsRoute = require('./docs.route');
+const docsRoute = require('./docs.route'); // Route for documentation
 const config = require('../config/config');
 
-const dashboardRoutes = require('./smartandon/dashboard');
-const qccMTypesRoutes = require('./smartandon/qccMTypes');
-const lineRoutes = require('./smartandon/line');
-const machineRoutes = require('./smartandon/machine');
-const memberRoutes = require('./smartandon/member');
-const machineStopInputRoutes = require('./smartandon/machineStopInput.controller');
+const dashboardRoutes = require('./dashboard.route'); // Route for dashboard
+const qccMTypesRoutes = require('./qccMTypes.route'); // Route for QCC MTypes
+const lineRoutes = require('./line.route'); // Route for line
+const machineRoutes = require('./machine.route'); // Route for machine
+const memberRoutes = require('./member.route'); // Route for member
+const machineStopInputRoutes = require('./machineStopInput.route'); // Route for machine stop input
 
-const problemRoutes = require('./smartandon/problem');
-const mtbfmttrRoutes = require('./smartandon/mtbfmttr');
-const realtimeParetoRoutes = require('./smartandon/realtimePareto');
-const summaryRoutes = require('./smartandon/summary');
-const cmFollowupRoutes = require('./smartandon/cmFollowup');
-const downloadRoutes = require('./smartandon/download.route');
+const problemRoutes = require('./problem.route'); // Route for problem
+const mtbfmttrRoutes = require('./mtbfmttr.route'); // Route for MTBF MTTR
+const realtimeParetoRoutes = require('./realtimePareto.route'); // Route for realtime pareto
+const summaryRoutes = require('./summary.route'); // Route for summary
+const cmFollowupRoutes = require('./cmFollowup.route'); // Route for CM Followup
+const downloadRoutes = require('./download.route'); // Route for download
 
-const tambahAnalysis = require('./smartandon/tambahAnalysis');
+const tambahAnalysis = require('./tambahAnalysis.route'); // Route for tambah analysis
 
-const authRoutes = require('./smartandon/auth');
-const userRoutes = require('./smartandon/user');
-const kyMachineRoutes = require('./smartandon/kyMachine');
-const sparepartRoutes = require('./smartandon/spareparts');
-const q6Routes = require('./smartandon/q6.route');
-const temporaryActionListRoutes = require('./smartandon/temporaryactionlist');
-const focusThemaRoutes = require('./smartandon/focusThema');
-const floatingPlungerTipsRoutes = require('./smartandon/floatingPlungerTips');
-const frontendRoutes = require('./smartandon/frontend');
+const authRoutes = require('./auth.route'); // Route for authentication
+const userRoutes = require('./user.route'); // Route for user
+const kyMachineRoutes = require('./kyMachine.route'); // Route for KY Machine
+const sparepartRoutes = require('./spareparts.route'); // Route for spare parts
+const q6Routes = require('./q6.route'); // Route for Q6
+const temporaryActionListRoutes = require('./temporaryactionlist.route');
+const focusThemaRoutes = require('./focusThema.route');
+const floatingPlungerTipsRoutes = require('./floatingPlungerTips.route');
+const frontendRoutes = require('./frontend.route');
 const cameraRoutes = require('./camera.route');
 const inspectionRoutes = require('./inspection.route');
 

@@ -17,7 +17,7 @@ const { errorConverter, errorHandler } = require('./middlewares/error');
 const ApiError = require('./utils/ApiError');
 
 const app = express();
-const dashboardRoutes = require('./routes/smartandon/dashboard');
+const dashboardRoutes = require('./routes/dashboard.route');
 
 global.__basedir = `${__dirname}/..`;
 

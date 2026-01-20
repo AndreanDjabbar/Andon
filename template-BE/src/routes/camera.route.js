@@ -1,5 +1,5 @@
 const express = require('express');
-const cameraController = require('../controllers/camera.controller');
+const cameraController = require('../controllers/camera.controller'); // Controller for camera
 
 const router = express.Router();
 
