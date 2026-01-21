@@ -3,13 +3,14 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import DefaultLayout from '@/layouts/DefaultLayout'
 import DefaultLayoutStandAlone from '@/standalone/layouts/DefaultLayoutStandAlone'
 
-// Route groups
+const isStandalone = process.env.VUE_APP_STANDALONE_SINGLE_SPA === 'true'
+
 const appRoutes = [
+  // Dashboard Routes
   {
     path: '/app/dashboard',
     name: 'Dashboard',
-    component: () =>
-      import(/* webpackChunkName: "dashboard" */ '@/views/Dashboard.vue'),
+    component: () => import('@/views/Dashboard.vue'),
     meta: {
       requiresAuth: true,
       title: 'Dashboard',
@@ -18,18 +19,27 @@ const appRoutes = [
   {
     path: '/app/Dashboard2',
     name: 'Dashboard2',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/Dashboard2.vue'),
+    component: () => import('@/views/Dashboard2.vue'),
     meta: {
       requiresAuth: true,
-      title: 'Dashboard2',
+      title: 'Dashboard 2',
     },
   },
   {
+    path: '/dc/dashboard',
+    name: 'dcDashboard',
+    component: () => import('@/views/Dashboard.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'DC Dashboard',
+    },
+  },
+
+  // Analysis & Reporting Routes
+  {
     path: '/app/MTBFMTTR',
-    name: 'MTB FMTTR',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/MTBFMTTR/MTBFMTTR.vue'),
+    name: 'MTBFMTTR',
+    component: () => import('@/views/MTBFMTTR/MTBFMTTR.vue'),
     meta: {
       requiresAuth: true,
       title: 'MTBF MTTR',
@@ -37,106 +47,66 @@ const appRoutes = [
   },
   {
     path: '/app/RealtimeParetto',
-    name: 'Realtime Paretto',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/RealtimeParetto/RealtimeParetto.vue'
-      ),
+    name: 'RealtimeParetto',
+    component: () => import('@/views/RealtimeParetto/RealtimeParetto.vue'),
     meta: {
       requiresAuth: true,
-      title: 'Realtime Paretto',
-    },
-  },
-
-  {
-    path: '/app/DashboardDataDisplay',
-    name: 'Dashboard Data Display',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/DashboardDataDisplay.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'Dashboard Data Display',
-    },
-  },
-
-  {
-    path: '/app/EditDataSmartandon',
-    name: 'Edit Data Smartandon',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/EditDataSmartandon.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'Edit Data Smartandon',
-    },
-  },
-
-  {
-    path: '/app/SparepartAnalysis',
-    name: 'Sparepart Analysis',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/SparepartAnalysis.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'Sparepart Analysis',
-    },
-  },
-
-  {
-    path: '/app/JobAnalysis',
-    name: 'Job Analysis',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/JobAnalysis.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'Job Analysis',
-    },
-  },
-  // Add the uncommented Quality Operational route
-  // {
-  //   path: '/qdc/quality-operational',
-  //   name: 'QualityOperational',
-  //   component: () => import(/* webpackChunkName: "quality-operational" */ '@/views/qdc/QualityOperational.vue'),
-  //   meta: {
-  //     requiresAuth: true,
-  //     title: 'Quality Operational'
-  //   }
-  // },
-  // New route
-  {
-    path: '/dc/dashboard',
-    name: 'dcDashboard',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/Dashboard.vue'),
-    meta: {
-      requiresAuth: true,
-      title: 'dcDashboard',
+      title: 'Realtime Pareto',
     },
   },
   {
     path: '/app/Q6-Analysis',
     name: 'Q6Analysis',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/q6analysis/Q6Analysis.vue'),
+    component: () => import('@/views/q6analysis/Q6Analysis.vue'),
     meta: {
       requiresAuth: true,
       title: 'Q6 Analysis',
     },
   },
   {
+    path: '/app/SparepartAnalysis',
+    name: 'SparepartAnalysis',
+    component: () => import('@/views/SparepartAnalysis.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Sparepart Analysis',
+    },
+  },
+  {
+    path: '/app/JobAnalysis',
+    name: 'JobAnalysis',
+    component: () => import('@/views/JobAnalysis.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Job Analysis',
+    },
+  },
+
+  // Data Management Routes
+  {
+    path: '/app/DashboardDataDisplay',
+    name: 'DashboardDataDisplay',
+    component: () => import('@/views/DashboardDataDisplay.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Dashboard Data Display',
+    },
+  },
+  {
+    path: '/app/EditDataSmartandon',
+    name: 'EditDataSmartandon',
+    component: () => import('@/views/EditDataSmartandon.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Edit Data Smartandon',
+    },
+  },
+
+  // Problem & Action Tracking Routes
+  {
     path: '/app/ProblemHistory',
-    name: 'Problem History',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/ProblemHistory/ProblemHistory.vue'
-      ),
+    name: 'ProblemHistory',
+    component: () => import('@/views/ProblemHistory/ProblemHistory.vue'),
     meta: {
       requiresAuth: true,
       title: 'Problem History',
@@ -144,48 +114,37 @@ const appRoutes = [
   },
   {
     path: '/app/TemporaryActionList',
-    name: 'Temporary Action List',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/TemporaryActionList.vue'
-      ),
+    name: 'TemporaryActionList',
+    component: () => import('@/views/TemporaryActionList.vue'),
     meta: {
       requiresAuth: true,
       title: 'Temporary Action List',
     },
   },
-
-  {
-    path: '/app/FloatingPlungerTips',
-    name: 'Floating Plunger Tips',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/FloatingPlungerTips.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'Floating Plunger Tips',
-    },
-  },
-
   {
     path: '/app/FocusThema',
-    name: 'Focus Thema',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/FocusThema.vue'
-      ),
+    name: 'FocusThema',
+    component: () => import('@/views/FocusThema.vue'),
     meta: {
       requiresAuth: true,
       title: 'Focus Thema',
     },
   },
-  
+
+  // Maintenance & Machine Routes
+  {
+    path: '/app/FloatingPlungerTips',
+    name: 'FloatingPlungerTips',
+    component: () => import('@/views/FloatingPlungerTips.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Floating Plunger Tips',
+    },
+  },
   {
     path: '/app/LTBSummary',
-    name: 'LTB Summary',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/LTBSummary.vue'),
+    name: 'LTBSummary',
+    component: () => import('@/views/LTBSummary.vue'),
     meta: {
       requiresAuth: true,
       title: 'LTB Summary',
@@ -193,9 +152,8 @@ const appRoutes = [
   },
   {
     path: '/app/CMFollowup',
-    name: 'CM Followup',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/CMFollowup.vue'),
+    name: 'CMFollowup',
+    component: () => import('@/views/CMFollowup.vue'),
     meta: {
       requiresAuth: true,
       title: 'CM Followup',
@@ -203,19 +161,66 @@ const appRoutes = [
   },
   {
     path: '/app/KYMachine',
-    name: 'KY Machines',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/KYMachine.vue'),
+    name: 'KYMachine',
+    component: () => import('@/views/KYMachine.vue'),
     meta: {
       requiresAuth: true,
       title: 'KY Machines',
     },
   },
+
+  // Robot Inspection Routes
+  {
+    path: '/app/RobotInspection',
+    name: 'RobotInspection',
+    component: () => import('@/views/RobotInspection.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Robot Inspection',
+    },
+  },
+  {
+    path: '/app/CameraSettings',
+    name: 'CameraSettings',
+    component: () => import('@/views/CameraSettings.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Camera Settings',
+    },
+  },
+  {
+    path: '/app/CollectingSample',
+    name: 'CollectingSample',
+    component: () => import('@/views/CollectingSample.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Collecting Sample',
+    },
+  },
+  {
+    path: '/app/InspectionClass',
+    name: 'InspectionClass',
+    component: () => import('@/views/InspectionClass.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Inspection Class',
+    },
+  },
+  {
+    path: '/app/HistoryInspection',
+    name: 'HistoryInspection',
+    component: () => import('@/views/HistoryInspection.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'History Inspection',
+    },
+  },
+
+  // Redirect Routes (no authentication required)
   {
     path: '/app/tpm-redirect',
-    name: 'Redirect TPM',
-    component: () =>
-      import(/* webpackChunkName: "redirect-tpm" */ '@/views/RedirectTPM.vue'),
+    name: 'RedirectTPM',
+    component: () => import('@/views/RedirectTPM.vue'),
     meta: {
       requiresAuth: false,
       title: 'Redirect TPM',
@@ -223,76 +228,11 @@ const appRoutes = [
   },
   {
     path: '/app/order-spareparts-redirect',
-    name: 'Redirect Order Spareparts',
-    component: () =>
-      import(/* webpackChunkName: "redirect-order-spareparts" */ '@/views/RedirectOrderSpareparts.vue'),
+    name: 'RedirectOrderSpareparts',
+    component: () => import('@/views/RedirectOrderSpareparts.vue'),
     meta: {
       requiresAuth: false,
       title: 'Redirect Order Spareparts',
-    },
-  },
-  {
-    path: '/app/RobotInspection',
-    name: 'Robot Inspection',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/RobotInspection.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'Robot Inspection',
-    },
-  },
-
-  {
-    path: '/app/CameraSettings',
-    name: 'Camera Settings',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/CameraSettings.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'Camera Settings',
-    },
-  },
-
-  {
-    path: '/app/CollectingSample',
-    name: 'Collecting Sample',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/CollectingSample.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'Collecting Sample',
-    },
-  },
-
-  {
-    path: '/app/InspectionClass',
-    name: 'Inspection Class',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/InspectionClass.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'Inspection Class',
-    },
-  },
-
-  {
-    path: '/app/HistoryInspection',
-    name: 'History Inspection',
-    component: () =>
-      import(
-        /* webpackChunkName: "reports" */ '@/views/HistoryInspection.vue'
-      ),
-    meta: {
-      requiresAuth: true,
-      title: 'History Inspection',
     },
   },
 ]
@@ -301,8 +241,7 @@ const authRoutes = [
   {
     path: '/auth/register',
     name: 'Register',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/Register/Register.vue'),
+    component: () => import('@/views/Register/Register.vue'),
     meta: {
       title: 'Register',
     },
@@ -310,28 +249,24 @@ const authRoutes = [
   {
     path: '/auth/login',
     name: 'Login',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/Login/Login.vue'),
+    component: () => import('@/views/Login/Login.vue'),
     meta: {
       title: 'Login',
     },
   },
 ]
 
-// Error pages
 const errorRoutes = [
   {
     path: '/404',
     name: 'Page404',
-    component: () =>
-      import(/* webpackChunkName: "error-404" */ '@/views/pages/Page404'),
+    component: () => import('@/views/pages/Page404'),
     meta: { title: 'Page Not Found' },
   },
   {
     path: '/500',
     name: 'Page500',
-    component: () =>
-      import(/* webpackChunkName: "error-500" */ '@/views/pages/Page500'),
+    component: () => import('@/views/pages/Page500'),
     meta: { title: 'Server Error' },
   },
   {
@@ -340,19 +275,18 @@ const errorRoutes = [
   },
 ]
 
-const isStandalone = process.env.VUE_APP_STANDALONE_SINGLE_SPA === 'true'
-console.log('Stand alone single SPA: ', isStandalone)
-
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: isStandalone ? DefaultLayoutStandAlone : DefaultLayout,
     redirect: () => {
+      // In single-spa mode, redirect to login if no token
       if (!isStandalone && (!localStorage.token || localStorage.token === '')) {
         window.location.href = process.env.dc + '/#/auth/login'
         return
       }
+      // Default redirect to dashboard
       return '/app/dashboard'
     },
     children: [...appRoutes],
@@ -363,46 +297,60 @@ const routes = [
 
 const isTokenExpired = (token) => {
   if (!token) return true
+  
   try {
+    // Decode JWT payload (middle part of token)
     const payload = JSON.parse(atob(token.split('.')[1]))
+    
+    // If no expiration time, consider token valid
     if (!payload.exp) return false
+    
+    // Check if current time exceeds expiration time
     return Date.now() >= payload.exp * 1000
   } catch (e) {
+    // If decoding fails, consider token invalid
     return true
   }
 }
 
 const router = createRouter({
+  // Use hash mode (#/) for compatibility with single-spa and static hosting
   history: createWebHashHistory(process.env.BASE_URL),
   routes,
   scrollBehavior() {
-    // always scroll to top
+    // Always scroll to top when navigating to a new route
     return { top: 0 }
   },
 })
 
-// Navigation guards for authentication
 router.beforeEach((to, from, next) => {
-  // Update document title
+  // Update browser tab title based on route meta
   if (to.meta.title) {
-    document.title = `Smartandon - ${to.meta.title}`
+    document.title = `Andon - ${to.meta.title}`
   }
 
+  // Check authentication status
   const token = localStorage.token
   const isLoggedIn = !!token && token !== '' && !isTokenExpired(token)
+  
+  // Clean up expired tokens
   if (token && isTokenExpired(token)) {
     localStorage.removeItem('token')
   }
-  // Redirect to login only if route requires auth and not logged in
+
+  // Redirect to login if route requires auth and user is not logged in
   if (to.meta.requiresAuth && !isLoggedIn) {
     next({ name: 'Login' })
     return
   }
-  // Prevent logged in user from accessing login/register
+
+  // Prevent logged-in users from accessing login/register pages
   if ((to.name === 'Login' || to.name === 'Register') && isLoggedIn) {
     next({ name: 'Dashboard' })
     return
   }
+
+  // Allow navigation
   next()
 })
 
