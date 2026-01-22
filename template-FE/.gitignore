@@ -42,10 +42,6 @@ Thumbs.db
 *.swp
 *.vi
 *.zip
-*~
-*.jpg
-*.jpeg
-*.png
 *.pdf
 *.jfif
 *.xlsm
@@ -58,7 +54,6 @@ Thumbs.db
 *.xlsb
 *.xltx
 *.xltm
-
 .env
 
 .env.dev
