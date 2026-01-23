@@ -10,25 +10,16 @@ const appRoutes = [
   {
     path: '/app/dashboard',
     name: 'Dashboard',
-    component: () => import('@/views/Dashboard.vue'),
+    component: () => import('@/views/dashboard/Dashboard.vue'),
     meta: {
       requiresAuth: true,
       title: 'Dashboard',
     },
   },
   {
-    path: '/app/Dashboard2',
-    name: 'Dashboard2',
-    component: () => import('@/views/Dashboard2.vue'),
-    meta: {
-      requiresAuth: true,
-      title: 'Dashboard 2',
-    },
-  },
-  {
     path: '/dc/dashboard',
     name: 'dcDashboard',
-    component: () => import('@/views/Dashboard.vue'),
+    component: () => import('@/views/dashboard/Dashboard.vue'),
     meta: {
       requiresAuth: true,
       title: 'DC Dashboard',
@@ -66,7 +57,7 @@ const appRoutes = [
   {
     path: '/app/SparepartAnalysis',
     name: 'SparepartAnalysis',
-    component: () => import('@/views/SparepartAnalysis.vue'),
+    component: () => import('@/views/SparepartAnalysis/SparepartAnalysis.vue'),
     meta: {
       requiresAuth: true,
       title: 'Sparepart Analysis',
@@ -75,7 +66,7 @@ const appRoutes = [
   {
     path: '/app/JobAnalysis',
     name: 'JobAnalysis',
-    component: () => import('@/views/JobAnalysis.vue'),
+    component: () => import('@/views/JobAnalysis/JobAnalysis.vue'),
     meta: {
       requiresAuth: true,
       title: 'Job Analysis',
@@ -86,19 +77,19 @@ const appRoutes = [
   {
     path: '/app/DashboardDataDisplay',
     name: 'DashboardDataDisplay',
-    component: () => import('@/views/DashboardDataDisplay.vue'),
+    component: () => import('@/views/DashboardDataDisplay/DashboardDataDisplay.vue'),
     meta: {
       requiresAuth: true,
       title: 'Dashboard Data Display',
     },
   },
   {
-    path: '/app/EditDataSmartandon',
-    name: 'EditDataSmartandon',
-    component: () => import('@/views/EditDataSmartandon.vue'),
+    path: '/app/EditDataAndon',
+    name: 'EditDataAndon',
+    component: () => import('@/views/EditDataAndon/EditDataAndon.vue'),
     meta: {
       requiresAuth: true,
-      title: 'Edit Data Smartandon',
+      title: 'Edit Data Andon',
     },
   },
 
@@ -115,7 +106,7 @@ const appRoutes = [
   {
     path: '/app/TemporaryActionList',
     name: 'TemporaryActionList',
-    component: () => import('@/views/TemporaryActionList.vue'),
+    component: () => import('@/views/TemporaryActionList/TemporaryActionList.vue'),
     meta: {
       requiresAuth: true,
       title: 'Temporary Action List',
@@ -124,7 +115,7 @@ const appRoutes = [
   {
     path: '/app/FocusThema',
     name: 'FocusThema',
-    component: () => import('@/views/FocusThema.vue'),
+    component: () => import('@/views/FocusThema/FocusThema.vue'),
     meta: {
       requiresAuth: true,
       title: 'Focus Thema',
@@ -135,7 +126,7 @@ const appRoutes = [
   {
     path: '/app/FloatingPlungerTips',
     name: 'FloatingPlungerTips',
-    component: () => import('@/views/FloatingPlungerTips.vue'),
+    component: () => import('@/views/FloatingPlungerTips/FloatingPlungerTips.vue'),
     meta: {
       requiresAuth: true,
       title: 'Floating Plunger Tips',
@@ -144,7 +135,7 @@ const appRoutes = [
   {
     path: '/app/LTBSummary',
     name: 'LTBSummary',
-    component: () => import('@/views/LTBSummary.vue'),
+    component: () => import('@/views/LTBReport/LTBSummary.vue'),
     meta: {
       requiresAuth: true,
       title: 'LTB Summary',
@@ -153,7 +144,7 @@ const appRoutes = [
   {
     path: '/app/CMFollowup',
     name: 'CMFollowup',
-    component: () => import('@/views/CMFollowup.vue'),
+    component: () => import('@/views/CMFollowup/CMFollowup.vue'),
     meta: {
       requiresAuth: true,
       title: 'CM Followup',
@@ -162,7 +153,7 @@ const appRoutes = [
   {
     path: '/app/KYMachine',
     name: 'KYMachine',
-    component: () => import('@/views/KYMachine.vue'),
+    component: () => import('@/views/KYMachines/KYMachine.vue'),
     meta: {
       requiresAuth: true,
       title: 'KY Machines',

@@ -198,8 +198,8 @@
               },
               {
                 component: 'CNavItem',
-                to: '/app/EditDataSmartandon',
-                name: 'Edit Data Smartandon',
+                to: '/app/EditDataAndon',
+                name: 'Edit Data Andon',
                 icon: 'cilClipboard',
                 parentId: 'ROOT',
               },

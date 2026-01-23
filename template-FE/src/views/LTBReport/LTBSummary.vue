@@ -221,7 +221,7 @@ import { Search } from 'lucide-vue-next'
 import LegendStatus from '@/components/LTBSummary/LegendStatus.vue'
 import api from '@/apis/CommonAPI'
 import ApexCharts from 'vue3-apexcharts'
-import EditProblemModal from './ProblemHistory/EditProblemModal.vue'
+import EditProblemModal from '../ProblemHistory/EditProblemModal.vue'
 import { ref } from 'vue'
 import Treeselect from 'vue3-treeselect'
 

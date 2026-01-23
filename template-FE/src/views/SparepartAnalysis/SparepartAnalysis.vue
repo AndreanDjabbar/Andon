@@ -505,7 +505,7 @@
 import { ref } from 'vue'
 import moment from 'moment'
 import { CButton, CCard, CCardBody, CCardTitle, CContainer, CTable, CTableHead, CTableBody, CTableHeaderCell, CTableRow, CTableDataCell, CCardHeader, CCardText, CoffCanvas, CAccordion, CAccordionItem, CAccordionHeader, CAccordionBody, CFormCheck, CRow, CCol, CPagination, CPaginationItem, CFormLabel, CInputGroup, CInputGroupText, CFormInput, CFormSelect, CModal, CModalHeader, CModalTitle, CModalBody, CTabs, CTabList, CTab, CTabContent, CTabPanel, CSpinner } from '@coreui/vue';
-import api from '../apis/CommonAPI'
+import api from '../../apis/CommonAPI'
 import EditProblemModal from '@/views/ProblemHistory/EditProblemModal.vue'
 import {
   AlertTriangle,

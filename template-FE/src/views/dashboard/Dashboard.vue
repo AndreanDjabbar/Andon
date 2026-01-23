@@ -1243,10 +1243,10 @@ import moment from 'moment'
 import { CButton, CCard, CCardBody, CCardTitle, CContainer, CTable, CTableHead, CTableBody, CTableHeaderCell, CTableRow, CTableDataCell, CCardHeader, CCardText, CoffCanvas, CAccordion, CAccordionItem, CAccordionHeader, CAccordionBody, CTooltip, CIcon } from '@coreui/vue';
 import { CChart } from '@coreui/vue-chartjs'
 import ApexCharts from 'vue3-apexcharts'
-import MainChartExample from './charts/MainChartExample'
-import WidgetsStatsA from './widgets/WidgetsStatsTypeA.vue'
-import WidgetsStatsD from './widgets/WidgetsStatsTypeD.vue'
-import api from '../apis/CommonAPI'
+import MainChartExample from '../charts/MainChartExample'
+import WidgetsStatsA from '../widgets/WidgetsStatsTypeA.vue'
+import WidgetsStatsD from '../widgets/WidgetsStatsTypeD.vue'
+import api from '../../apis/CommonAPI'
 import {
   AlertTriangle,
   Clock,
@@ -1274,7 +1274,7 @@ import 'vue3-treeselect/dist/vue3-treeselect.css'
 import { CFormSelect } from '@coreui/vue'
 import { ModelSelect } from 'vue-search-select'
 import "vue-search-select/dist/VueSearchSelect.css"
-import EditProblemModal from './ProblemHistory/EditProblemModal.vue'
+import EditProblemModal from '../ProblemHistory/EditProblemModal.vue'
 const visibleStaticBackdropDemo = ref(false);
 const visibleEnd = ref(false)
 
@@ -3106,7 +3106,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../standalone/assets/images/icon.png');
+  background-image: url('../../standalone/assets/images/icon.png');
   background-position: bottom right;
   background-repeat: no-repeat;
   background-size: 200px 200px;

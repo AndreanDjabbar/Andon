@@ -158,8 +158,8 @@
 
 <script>
 import axios from "axios"
-import STOP6_CATEGORY from "../constants/stop6Category"
-import isNotEmpty from '../functions/isNotEmpty'
+import STOP6_CATEGORY from "../../constants/stop6Category"
+import isNotEmpty from '../../functions/isNotEmpty'
 import Swal from "sweetalert2"
 import { mapGetters } from "vuex"
 import api from "@/apis/CommonAPI"
