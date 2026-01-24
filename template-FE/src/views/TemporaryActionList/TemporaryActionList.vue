@@ -399,7 +399,7 @@ import { CTable, CTableHead, CTableBody, CTableHeaderCell, CTableRow, CTableData
 import Treeselect from 'vue3-treeselect';
 import 'vue3-treeselect/dist/vue3-treeselect.css';
 import { BarChart3, AlertTriangle, CheckCircle2, Plus, Trash2, Edit, Clock } from 'lucide-vue-next'
-import api from '../apis/CommonAPI'
+import api from '../../apis/CommonAPI'
 
 export default {
   name: 'Dashboard',

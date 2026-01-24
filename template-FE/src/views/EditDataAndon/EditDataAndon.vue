@@ -462,10 +462,10 @@ import { CButton, CCard, CCardBody, CCardTitle, CContainer, CTable, CTableHead, 
 import axios from 'axios';
 import { CChart } from '@coreui/vue-chartjs'
 import ApexCharts from 'vue3-apexcharts'
-import MainChartExample from './charts/MainChartExample'
-import WidgetsStatsA from './widgets/WidgetsStatsTypeA.vue'
-import WidgetsStatsD from './widgets/WidgetsStatsTypeD.vue'
-import api from '../apis/CommonAPI'
+import MainChartExample from '../charts/MainChartExample'
+import WidgetsStatsA from '../widgets/WidgetsStatsTypeA.vue'
+import WidgetsStatsD from '../widgets/WidgetsStatsTypeD.vue'
+import api from '../../apis/CommonAPI'
 import {
   AlertTriangle,
   Clock,

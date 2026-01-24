@@ -88,7 +88,7 @@
 <script>
 import moment from 'moment'
 import { CTable, CTableHead, CTableBody, CTableHeaderCell, CTableRow, CTableDataCell, CCard, CCardBody, CCardHeader, CRow, CCol, CFormInput, CFormSelect, CButton } from '@coreui/vue';
-import api from '../apis/CommonAPI'
+import api from '../../apis/CommonAPI'
 
 export default {
   name: 'Dashboard',

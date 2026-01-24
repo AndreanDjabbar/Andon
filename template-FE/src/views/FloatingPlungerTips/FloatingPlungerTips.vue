@@ -496,7 +496,7 @@ import Treeselect from 'vue3-treeselect';
 import 'vue3-treeselect/dist/vue3-treeselect.css';
 import { BarChart3, AlertTriangle, CheckCircle2, Plus, Trash2, Edit, Clock } from 'lucide-vue-next'
 import VueApexCharts from 'vue3-apexcharts'
-import api from '../apis/CommonAPI'
+import api from '../../apis/CommonAPI'
 
 export default {
   name: 'Dashboard',
